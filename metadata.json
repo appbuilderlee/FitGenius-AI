@@ -1,0 +1,5 @@
+{
+  "name": "FitGenius AI",
+  "description": "A progressive web app (PWA) for fitness tracking and weight loss, powered by Google Gemini AI and ExerciseDB.",
+  "requestFramePermissions": []
+}
