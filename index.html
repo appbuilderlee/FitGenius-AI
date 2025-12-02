@@ -13,7 +13,9 @@
     <meta name="apple-mobile-web-app-title" content="FitGenius" />
     <link rel="apple-touch-icon" href="icon-192.png" />
     
-    <!-- Tailwind CSS (Keep CDN for simplicity in this setup, allows styling without extra build config) -->
+    <!-- Tailwind CSS -->
+    <!-- Keeping CDN for dev speed, but build process will use postcss if configured. 
+         For this setup, we keep it simple. -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -72,18 +74,18 @@
       .dark ::-webkit-scrollbar-thumb { background: #475569; }
       .safe-area-pb { padding-bottom: env(safe-area-inset-bottom); }
     </style>
-  <script type="importmap">
+<script type="importmap">
 {
   "imports": {
-    "react": "https://aistudiocdn.com/react@^19.2.0",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
-    "react/": "https://aistudiocdn.com/react@^19.2.0/",
-    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
-    "recharts": "https://aistudiocdn.com/recharts@^3.5.1",
-    "vite": "https://aistudiocdn.com/vite@^7.2.6",
     "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.6",
-    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.1"
+    "vite": "https://aistudiocdn.com/vite@^7.2.6",
+    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.1",
+    "recharts": "https://aistudiocdn.com/recharts@^3.5.1",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0"
   }
 }
 </script>
@@ -91,6 +93,6 @@
   <body class="bg-slate-50 text-slate-900 antialiased selection:bg-emerald-200 selection:text-emerald-900 transition-colors duration-300">
     <div id="root"></div>
     <!-- Vite Entry Point -->
-    <script type="module" src="/index.tsx"></script>
+    <script type="module" src="./index.tsx"></script>
   </body>
 </html>
