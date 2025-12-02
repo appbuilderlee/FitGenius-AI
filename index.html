@@ -11,9 +11,14 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="apple-mobile-web-app-title" content="FitGenius" />
-    <link rel="apple-touch-icon" href="icon-192.png" />
+    <link rel="apple-touch-icon" href="/icon-192.png" />
     
-    <!-- Tailwind CSS -->
+    <!-- Tailwind CSS (Keep CDN for simplicity, or move to PostCSS in build) -->
+    <!-- For production build via Vite, it's better to let Vite handle CSS, 
+         but keeping CDN allows 'dev' mode to look okay quickly if styled locally. 
+         However, the 'package.json' includes tailwindcss, so we will generate it. 
+         For this hybrid setup, we will keep the CDN for the 'raw' file view but 
+         Vite will process styles if configured. -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -64,7 +69,6 @@
       }
     </script>
     <style>
-      /* Custom scrollbar for webkit */
       ::-webkit-scrollbar { width: 6px; height: 6px; }
       ::-webkit-scrollbar-track { background: transparent; }
       ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
@@ -75,22 +79,22 @@
 <script type="importmap">
 {
   "imports": {
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.6",
     "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+    "recharts": "https://aistudiocdn.com/recharts@^3.5.1",
+    "vite": "https://aistudiocdn.com/vite@^7.2.6",
+    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.1",
     "react/": "https://aistudiocdn.com/react@^19.2.0/",
     "react": "https://aistudiocdn.com/react@^19.2.0",
-    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
-    "vite": "https://aistudiocdn.com/vite@^7.2.6",
-    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.6",
-    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.1",
-    "recharts": "https://aistudiocdn.com/recharts@^3.5.1"
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0"
   }
 }
 </script>
 </head>
   <body class="bg-slate-50 text-slate-900 antialiased selection:bg-emerald-200 selection:text-emerald-900 transition-colors duration-300">
     <div id="root"></div>
-    <!-- Vite Entry Point -->
+    <!-- CRITICAL: This script tag connects the HTML to your React code -->
     <script type="module" src="./index.tsx"></script>
   </body>
 </html>
