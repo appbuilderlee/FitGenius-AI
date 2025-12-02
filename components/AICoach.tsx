@@ -147,7 +147,7 @@ const AICoach: React.FC<AICoachProps> = ({ userSettings, onAddPlan }) => {
     }, 1500);
 
     // 6. Send success back to model (Background process - fire and forget)
-    if (chatSession.current) {
+    /*if (chatSession.current) {
        chatSession.current.sendToolResponse({
             functionResponses: [{
                 name: 'create_workout_plan',
@@ -155,7 +155,7 @@ const AICoach: React.FC<AICoachProps> = ({ userSettings, onAddPlan }) => {
                 response: { result: "Plan saved successfully." }
             }]
          }).catch(e => console.error("Background AI sync failed, but plan was saved locally.", e));
-    }
+    } */
   };
 
   const formatText = (text: string) => {
